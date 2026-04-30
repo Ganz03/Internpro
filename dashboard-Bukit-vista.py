@@ -134,7 +134,7 @@ if st.button("Get Recommendations"):
     # ==========================
     # DISPLAY
     # ==========================
-    st.subheader(f"🏖️ Top 10 Recommendations for User {user_id}")
+    st.subheader(f"🏖️ Top Recommendations for User {user_id}")
     st.success("✅ Here are your personalized recommendations!")
 
     for i, (name, score) in enumerate(recommendations.items(), 1):
