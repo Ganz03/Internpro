@@ -6,7 +6,7 @@ from PIL import Image
 
 # === Load models ===
 rf_model = joblib.load('rf_model.joblib')
-svd_data = joblib.load('svd_model.joblib')
+svd_data = joblib.load('svd_model_fixed.joblib')
 U = svd_data['U']
 Vt = svd_data['Vt']
 user_to_idx = svd_data['user_to_idx']
