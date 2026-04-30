@@ -1,3 +1,4 @@
+from networkx import sigma
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,15 +7,20 @@ from PIL import Image
 
 # === Load models ===
 rf_model = joblib.load('rf_model.joblib')
-svd_data = joblib.load('svd_model.joblib')
-
-# Extract SVD components
+svd_data = joblib.load('svd_model (1).joblib')
 U = svd_data['U']
-sigma = svd_data['sigma']
 Vt = svd_data['Vt']
 user_to_idx = svd_data['user_to_idx']
 item_to_idx = svd_data['item_to_idx']
 global_mean = svd_data['global_mean']
+
+def predict_rating(user_id, property_name):
+    if user_id in user_to_idx and property_name in item_to_idx:
+        u = user_to_idx[user_id]
+        i = item_to_idx[property_name]
+        score = float(U[u] @ Vt[:, i])
+        return float(np.clip(score, 1, 5))
+    return float(global_mean)
 
 # Helper: predict rating
 def predict_rating(user_id, property_name):
