@@ -1,4 +1,3 @@
-from networkx import sigma
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -23,15 +22,6 @@ def predict_rating(user_id, property_name):
     return float(global_mean)
 
 # Helper: predict rating
-def predict_rating(user_id, property_name):
-    if user_id in user_to_idx and property_name in item_to_idx:
-        u = user_to_idx[user_id]
-        i = item_to_idx[property_name]
-        score = U[u] @ np.diag(sigma) @ Vt[:, i]
-        return float(np.clip(score, 1, 5))
-    else:
-        return float(global_mean)
-
 # === Load dataset ===
 df_rent = pd.read_csv('bukit-vista.csv')
 
