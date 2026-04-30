@@ -1,6 +1,6 @@
 numpy
 scikit-surprise==1.1.3
-scikit-surprise
+scikit-learn
 joblib
 pandas
 streamlit
