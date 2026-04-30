@@ -1,5 +1,6 @@
 numpy
-scikit-learn
+scikit-surprise==1.1.3
+Cython==0.29.36
 scikit-surprise
 joblib
 pandas
