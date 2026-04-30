@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from PIL import Image
-from surprise import SVD, Dataset, Reader, accuracy
-from surprise.model_selection import train_test_split
+
 
 # === Load models ===
 rf_model = joblib.load('rf_model.joblib')  # Model Random Forest
